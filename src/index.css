@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --text-big: 1.5rem;
+  --color-primary: #c85a29;
+}
