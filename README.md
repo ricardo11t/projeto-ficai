@@ -20,6 +20,7 @@ Plataforma para reserva de hospedagens em pontos turísticos, desenvolvida com R
 - Axios (para integração com API)
 - React Router DOM
 - React Icons
+- React Material UI (MUI)
 
 **Back-End**  
 - Node.js + Express

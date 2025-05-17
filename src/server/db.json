@@ -5,6 +5,11 @@
                 "nome": "Praia do Futuro",
                 "img": "/src/img/praia-do-fututo.png",
                 "desc": "A Praia do Futuro, localizada em Fortaleza, Ceará, é uma praia extensa e popular, conhecida por suas barracas de praia, ondas mais fortes e atividades como surf e kitesurf. É um ponto turístico e local de lazer muito frequentado, com um corredor de barracas onde se servem pratos típicos e frutos do mar. "
+            },
+            "ponto2": {
+                "nome": "Praia de Iracema",
+                "img": "/src/img/praiadeiracema.png",
+                "desc": "A Praia de Iracema, em Fortaleza, é uma das principais praias da cidade, conhecida por sua área aterrada e por ser um local frequentado para eventos. O nome da praia e do bairro homônimo, vem da personagem Iracema, do romance de José de Alencar. A praia é um ponto turístico e cultural importante de Fortaleza, com atividades como passeios, esportes e cultura. "
             }
         },
         "Aracati": {
