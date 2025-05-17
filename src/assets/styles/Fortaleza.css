@@ -13,42 +13,136 @@
   border-bottom: 3px solid #3498db;
 }
 
-/* Imagem Principal */
-.image-container {
-  position: relative;
+
+/* Layout Desktop - Imagem e texto lado a lado */
+.sobre-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
   margin: 40px 0;
+}
+
+.image-container {
+  flex: 1;
+  min-width: 45%;
+  margin: 0;
 }
 
 .main-header-image {
   width: 100%;
-  height: 500px;
+  height: 400px;
   object-fit: cover;
-  border-radius: 15px;
-  margin: 30px 0;
-  border: 3px solid #fff;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-  filter: brightness(0.95) contrast(1.1);
-  transition: all 0.3s ease;
+  border-radius: 12px;
 }
 
-.image-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.1) 100%);
-  border-radius: 15px;
+.sobre-fortal {
+  flex: 1;
+  padding: 20px 30px;
 }
 
-.main-header-image:hover {
-  transform: scale(1.01);
-  filter: brightness(1) contrast(1.2);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+/* Layout Mobile */
+@media (max-width: 768px) {
+  .sobre-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .image-container {
+    width: 80% !important; /* Força 80% da largura */
+    margin: 0 auto;
+    flex: none;
+  }
+
+  .main-header-image {
+    height: 300px;
+    width: 100%; /* Preenche 100% do container pai (que tem 80% da tela) */
+  }
+
+  .sobre-fortal {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  /* Ajuste adicional para telas muito pequenas */
+  @media (max-width: 480px) {
+    .image-container {
+      width: 90% !important;
+    }
+    
+    .main-header-image {
+      height: 250px;
+    }
+  }
+}
+/* Responsivo */
+@media (max-width: 992px) {
+  .sobre-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .image-container,
+  .sobre-fortal {
+    width: 100%;
+    flex: none;
+  }
+  
+  .main-header-image {
+    height: 350px;
+  }
+  
+  .sobre-fortal {
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+  
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .orange-line {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
-/* Pontos Turísticos */
+@media (max-width: 768px) {
+  .main-header-image {
+    height: 280px;
+  }
+  
+  .sobre-fortal {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    padding-bottom: 12px;
+  }
+  
+  .sobre-fortal p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header-image {
+    height: 220px;
+  }
+  
+  .title {
+    font-size: 1.6rem;
+  }
+  
+  .orange-line {
+    width: 60px;
+    height: 2px;
+  }
+}/* Pontos Turísticos */
 .pontos-turisticos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
