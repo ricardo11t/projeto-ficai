@@ -1,0 +1,20 @@
+{
+    "cidades": [
+        {
+            "nome": "Fortaleza"
+        },
+        {
+            "nome": "Guaramiranga"
+        },
+        {
+            "nome": "Aracati"
+        },
+        {
+            "nome": "Jicoca"
+        },
+        {
+            "nome": "Aquiraz"
+        }
+    ]
+
+}

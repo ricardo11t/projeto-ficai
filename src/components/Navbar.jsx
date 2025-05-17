@@ -1,30 +1,86 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import {
+  Collapse,
+  List,
+  ListItemButton,
+  ListItemText,
+  Paper,
+} from '@mui/material';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
 
 const Navbar = () => {
-  return (
-    <div className='flex justify-between bg-(color:--color-primary) p-4'>
-        <div className='ml-4'>
-            <a href="/"><img src="/src/img/ficaiicon.png" alt=""  className='h-10 cursor-pointer'/></a>
-        </div>
-        <div>
-            <nav className='mt-2'>
-                <ul className='flex justify-center space-x-4 gap-1'>
-                    <li><a href="" className='text-white hover:text-black'>Fortaleza</a></li>
-                    <li><a href="" className='text-white hover:text-black'>Guaramiranga</a></li>
-                    <li><a href="" className='text-white hover:text-black'>Aracati</a></li>
-                    <li><a href="" className='text-white hover:text-black'>Jicoca</a></li>
-                    <li><a href="" className='text-white hover:text-black'>Aquiraz</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div>
-            <ul className='flex space-x-4'>
-                <li className='rounded-md'><a href="/Login" className='border-gray-400'><button className='text-white bg-orange-300 rounded-md p-2 cursor-pointer outline-1 hover:bg-amber-400 '>Entrar</button></a></li>
-                <li className='p-2 bg-black rounded-md'><a href="/Cadastrar" className='text-white'>Cadastrar</a></li>
-            </ul>
-        </div>
-    </div>
-  )
-}
+  const [open, setOpen] = useState(false);
+  const [cidades, setCidades] = useState([]);  // Estado para armazenar cidades
+  const URL = "http://localhost:3000/cidades";
 
-export default Navbar
+  // Função para buscar cidades da API
+  const getCities = async () => {
+    try {
+      const res = await fetch(URL);
+      const dados = await res.json();
+      setCidades(dados);  // Atualiza o estado com os dados recebidos
+    } catch (err) {
+      console.error("Erro ao buscar as cidades", err);
+    }
+  };
+
+  // useEffect para chamar getCities apenas 1 vez quando o componente monta
+  useEffect(() => {
+    getCities();
+  }, []);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+  return (
+    <div className="relative z-50">
+      <List component="nav" aria-label="main mailbox folders">
+        <ListItemButton
+          onClick={handleClick}
+          sx={{
+            backgroundColor: '#c87548',
+            color: 'white',
+            '&:hover': { backgroundColor: '#ffba01' },
+            borderRadius: 2,
+            border: 1,
+            borderColor: 'white',
+          }}
+        >
+          <ListItemText primary="Cidades" />
+          {open ? <ExpandMore /> : <ExpandLess />}
+        </ListItemButton>
+      </List>
+
+      {/* Dropdown fora do fluxo normal */}
+      <Collapse
+        in={open}
+        timeout="auto"
+        unmountOnExit
+        sx={{ position: 'absolute', top: '100%', left: 0, zIndex: 50, mt: 1 }}
+      >
+        <Paper
+          sx={{
+            width: 200,
+            borderRadius: 2,
+            boxShadow: 3,
+            overflow: 'hidden',
+          }}
+        >
+          <List component="div" disablePadding>
+            {/* Renderiza dinamicamente cada cidade usando map */}
+            {cidades.map((cidade, index) => (
+              <ListItemButton key={index} sx={{ pl: 4 }}>
+                <ListItemText primary={cidade.nome || cidade} />
+                {/* Use cidade.nome se a cidade for objeto, ou cidade se for string */}
+              </ListItemButton>
+            ))}
+          </List>
+        </Paper>
+      </Collapse>
+    </div>
+  );
+};
+
+export default Navbar;

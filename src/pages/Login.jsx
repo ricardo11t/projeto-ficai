@@ -1,12 +1,10 @@
 import React from 'react'
 import Header from '../components/Header'
 
-const Landingpage = () => {
+const Login = () => {
   return (
-    <>
-      <Header />
-    </>
+    <div>Login</div>
   )
 }
 
-export default Landingpage
+export default Login
