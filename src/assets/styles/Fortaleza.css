@@ -1,0 +1,201 @@
+.container-fortaleza {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  color: #2c3e50;
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 40px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #3498db;
+}
+
+/* Imagem Principal */
+.image-container {
+  position: relative;
+  margin: 40px 0;
+}
+
+.main-header-image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 30px 0;
+  border: 3px solid #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  filter: brightness(0.95) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.1) 100%);
+  border-radius: 15px;
+}
+
+.main-header-image:hover {
+  transform: scale(1.01);
+  filter: brightness(1) contrast(1.2);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* Pontos Turísticos */
+.pontos-turisticos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.ponto-turistico-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid #3498db;
+}
+
+.card-content {
+  padding: 15px;
+  min-height: 150px;
+}
+
+.card-content h3 {
+  color: #2c3e50;
+  margin: 0 0 15px;
+  font-size: 1.4rem;
+}
+
+.card-content p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Seções Especiais */
+.como-chegar-section,
+.dicas-viagem {
+  padding: 40px;
+  border-radius: 12px;
+  margin: 50px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.como-chegar-section {
+  background-color: #f8f9fa;
+  border-left: 4px solid #3498db;
+}
+
+.dicas-viagem {
+  background-color: #fff9e6;
+  border-left: 4px solid #f1c40f;
+}
+
+.como-chegar-section h2,
+.dicas-viagem h2 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  position: relative;
+  padding-left: 40px;
+}
+
+.como-chegar-section h2::before { content: '✈️'; }
+.dicas-viagem h2::before { content: '📌'; }
+
+.como-chegar-section h2::before,
+.dicas-viagem h2::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+}
+
+/* Listas */
+.dicas-viagem ol {
+  list-style: none;
+  counter-reset: dicas-counter;
+  padding: 0;
+  margin: 0;
+}
+
+.dicas-viagem li {
+  counter-increment: dicas-counter;
+  margin-bottom: 25px;
+  padding: 20px 20px 20px 70px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.dicas-viagem li::before {
+  content: counter(dicas-counter);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px;
+  height: 35px;
+  background: #3498db;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container-fortaleza { padding: 10px; }
+  
+  .title {
+    font-size: 1.8rem;
+    margin: 30px 0;
+  }
+
+  .main-header-image {
+    height: 300px;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .pontos-turisticos-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .como-chegar-section,
+  .dicas-viagem {
+    padding: 25px;
+    margin: 30px 0;
+  }
+
+  .card-image { height: 180px; }
+}
+
+/* Efeitos Hover */
+.ponto-turistico-card:hover { transform: translateY(-5px); }
+.como-chegar-section:hover,
+.dicas-viagem li:hover { transform: translateX(10px); }
