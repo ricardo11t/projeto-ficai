@@ -20,28 +20,28 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className=''>
-            <div className='flex flex-col'>
-                <h5 className='text-lg font-semibold'>Cidades</h5>
-                <ul>
-                {cidades.map((cidade, index) => (
-                    <li key={index}>
-                    <a className='hover:text-black' href={'/' + cidade.nome}>{cidade.nome}</a>
-                    </li>
-                ))}
-                </ul>
-            </div>
-          </div>
+        <div className=''>
+        <div className='flex flex-col'>
+            <h5 className='text-lg font-semibold'>Cidades</h5>
+            <ul>
+            {Object.keys(cidades).map((cidade, index) => (
+                <li key={index}>
+                    <a className='hover:text-black' href={cidade}>{cidade}</a>
+                </li>
+            ))}
+            </ul>
+        </div>
+        </div>
           <div className=''>
             <div className='flex flex-col'>
                 <h5 className='text-lg font-semibold'>
                     Links Úteis
                 </h5>
                 <ul>
-                    <li className='hover:text-black'><a href="/Entrar">Entrar</a></li>
-                    <li className='hover:text-black'><a href="/Cadastrar">Cadastrar</a></li>
-                    <li className='hover:text-black'><a href="/">Sobre Nós</a></li>
-                    <li className='hover:text-black'><a href="/">Contato</a></li>
+                    <li ><a className='hover:text-black' href="/Entrar">Entrar</a></li>
+                    <li ><a className='hover:text-black' href="/Cadastrar">Cadastrar</a></li>
+                    <li ><a className='hover:text-black' href="/">Sobre Nós</a></li>
+                    <li ><a className='hover:text-black' href="/">Contato</a></li>
                 </ul>
             </div>
           </div>

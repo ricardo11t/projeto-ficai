@@ -37,7 +37,6 @@ const Navbar = () => {
         </ListItemButton>
       </List>
 
-      {/* Dropdown fora do fluxo normal */}
       <Collapse
         in={open}
         timeout="auto"
@@ -53,11 +52,9 @@ const Navbar = () => {
           }}
         >
           <List component="div" disablePadding>
-            {/* Renderiza dinamicamente cada cidade usando map */}
-            {cidades.map((cidade, index) => (
+            {Object.keys(cidades).map((cidade, index) => (
               <ListItemButton key={index} sx={{ pl: 4 }}>
                 <ListItemText primary={cidade.nome || cidade} />
-                {/* Use cidade.nome se a cidade for objeto, ou cidade se for string */}
               </ListItemButton>
             ))}
           </List>

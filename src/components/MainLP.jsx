@@ -1,9 +1,10 @@
 import React from 'react'
+import Cards from './Card'
 
 const MainLP = () => {
   return (
-    <div>MainLP</div>
-  )
+    <Cards />
+  ) 
 }
 
 export default MainLP
