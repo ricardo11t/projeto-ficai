@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import {
   Collapse,
   List,
@@ -8,27 +8,11 @@ import {
 } from '@mui/material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
+import { CidadesContext } from '../context/CidadesProvider';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [cidades, setCidades] = useState([]);  // Estado para armazenar cidades
-  const URL = "http://localhost:3000/cidades";
-
-  // Função para buscar cidades da API
-  const getCities = async () => {
-    try {
-      const res = await fetch(URL);
-      const dados = await res.json();
-      setCidades(dados);  // Atualiza o estado com os dados recebidos
-    } catch (err) {
-      console.error("Erro ao buscar as cidades", err);
-    }
-  };
-
-  // useEffect para chamar getCities apenas 1 vez quando o componente monta
-  useEffect(() => {
-    getCities();
-  }, []);
+  const { cidades } = useContext(CidadesContext);
 
   const handleClick = () => {
     setOpen(!open);
