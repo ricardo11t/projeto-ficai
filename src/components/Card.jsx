@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CidadesContext } from '../context/CidadesProvider';
+import { Link } from 'react-router-dom';
 
 
 const Cards = () => {
@@ -33,7 +34,9 @@ return (
                         </Typography>
                     </CardContent>
                     <CardActions className="justify-start mt-auto">
-                        <Button size="small">Ver Detalhes</Button>
+                        <Link to={`/${cidade}`}>
+                            <Button size="small">Ver Detalhes</Button>
+                        </Link>
                     </CardActions>
                 </Card>
                 );

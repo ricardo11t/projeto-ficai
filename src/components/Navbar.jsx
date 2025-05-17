@@ -9,6 +9,7 @@ import {
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import { CidadesContext } from '../context/CidadesProvider';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -53,9 +54,11 @@ const Navbar = () => {
         >
           <List component="div" disablePadding>
             {Object.keys(cidades).map((cidade, index) => (
-              <ListItemButton key={index} sx={{ pl: 4 }}>
-                <ListItemText primary={cidade.nome || cidade} />
-              </ListItemButton>
+              <Link key={index} to={`/${cidade}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemText primary={cidade} />
+                </ListItemButton>
+              </Link>
             ))}
           </List>
         </Paper>
