@@ -1,5 +1,6 @@
 import '../assets/styles/Fortaleza.css';
-
+import Header from '../components/Header';
+import Footer from '../components/Footer'
 
 const Fortaleza = () => {
     const pontosTuristicos = [
@@ -46,6 +47,8 @@ const Fortaleza = () => {
     ];
 
     return (
+        <>
+        <Header />
         <div className='container-fortaleza'>
             <div className="sobre-container">
                 <div className="image-container">
@@ -116,7 +119,10 @@ const Fortaleza = () => {
                 </ol>
             </section>
         </div>
+        <Footer />
+    </>
     );
+    
 };
 
 export default Fortaleza;
