@@ -1,32 +1,96 @@
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  Collapse,
+  List,
+  ListItemButton,
+  ListItemText,
+  Paper,
+} from '@mui/material';
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import { CidadesContext } from '../context/CidadesProvider';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-    return (
-        <div className='flex justify-between bg-(color:--color-primary) p-4'>
-            <div className='ml-4'>
-                <a href="/"><img src="/src/img/ficaiicon.png" alt="" className='h-10 cursor-pointer' /></a>
-            </div>
-            <div>
-                <nav className='mt-2'>
-                    <ul className='flex justify-center space-x-4 gap-1'>
-                        <li>
-                            <Link to="/fortaleza" className='text-white hover:text-black'>Fortaleza</Link>
-                        </li>
-                        <li><a href="" className='text-white hover:text-black'>Guaramiranga</a></li>
-                        <li><a href="" className='text-white hover:text-black'>Aracati</a></li>
-                        <li><a href="" className='text-white hover:text-black'>Jicoca</a></li>
-                        <li><a href="" className='text-white hover:text-black'>Aquiraz</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div>
-                <ul className='flex space-x-4'>
-                    <li className='rounded-md'><a href="/Login" className='border-gray-400'><button className='text-white bg-orange-300 rounded-md p-2 cursor-pointer outline-1 hover:bg-amber-400 '>Entrar</button></a></li>
-                    <li className='p-2 bg-black rounded-md'><a href="/Cadastrar" className='text-white'>Cadastrar</a></li>
-                </ul>
-            </div>
-        </div>
-    )
-}
+  const [open, setOpen] = useState(false);
+  const { cidades } = useContext(CidadesContext);
 
-export default Navbar
+  const handleClick = () => {
+    setOpen(!open);
+  };
+
+  return (
+    <div className="flex justify-center bg-orange-700 p-4 items-center text-white">
+      {/* Menu de cidades centralizado */}
+      <div className="relative">
+        <List component="nav">
+          <ListItemButton
+            onClick={handleClick}
+            sx={{
+              backgroundColor: '#c87548',
+              color: 'white',
+              '&:hover': { backgroundColor: '#ffba01' },
+              borderRadius: 2,
+              border: 1,
+              borderColor: 'white',
+            }}
+          >
+            <ListItemText primary="Cidades" />
+            {open ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+        </List>
+
+        <Collapse
+          in={open}
+          timeout="auto"
+          unmountOnExit
+          sx={{
+            position: 'absolute',
+            top: '100%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: 50,
+            mt: 1
+          }}
+        >
+          <Paper
+            sx={{
+              width: 200,
+              borderRadius: 2,
+              boxShadow: 3,
+              overflow: 'hidden',
+            }}
+          >
+            <List component="div" disablePadding>
+              {Object.keys(cidades).map((key, index) => {
+                const cidade = cidades[key];
+                return (
+                  <ListItemButton
+                    key={index}
+                    component={Link}
+                    to={`/${cidade.nome?.toLowerCase() || cidade}`}
+                  >
+                    <ListItemText primary={cidade.nome || cidade} />
+                  </ListItemButton>
+                );
+              })}
+            </List>
+          </Paper>
+        </Collapse>
+      </div>
+          <List component="div" disablePadding>
+            {Object.keys(cidades).map((cidade, index) => (
+              <Link key={index} to={`/${cidade}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemText primary={cidade} />
+                </ListItemButton>
+              </Link>
+            ))}
+          </List>
+        </Paper>
+      </Collapse>
+    </div>
+  );
+};
+
+export default Navbar;
