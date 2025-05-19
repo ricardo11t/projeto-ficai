@@ -11,7 +11,7 @@ import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { CidadesContext } from '../context/CidadesProvider';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { cidades } = useContext(CidadesContext);
 
@@ -53,7 +53,6 @@ const Header = () => {
             mt: 1
           }}
         >
-<<<<<<< HEAD
           <Paper
             sx={{
               width: 200,
@@ -79,7 +78,6 @@ const Header = () => {
           </Paper>
         </Collapse>
       </div>
-=======
           <List component="div" disablePadding>
             {Object.keys(cidades).map((cidade, index) => (
               <Link key={index} to={`/${cidade}`} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -91,9 +89,8 @@ const Header = () => {
           </List>
         </Paper>
       </Collapse>
->>>>>>> a590fef2318d3257ceadf11669ff497d7e07cfdc
     </div>
   );
 };
 
-export default Header;
+export default Navbar;
