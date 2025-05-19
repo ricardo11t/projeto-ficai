@@ -21,14 +21,14 @@ const Header = () => {
 
   return (
     <header>
-      <div className="flex justify-between bg-orange-700 p-4 items-center">
+      <div className="flex justify-between bg-primary p-4 items-center">
         {/* Logo */}
         <div className="ml-4">
           <a href="/">
             <img
-              src="/src/img/ficaiicon.png"
+              src="/src/img/ficai-logo.png"
               alt="Ficaí Logo"
-              className="h-10 cursor-pointer"
+              className="h-20 cursor-pointer p-0"
             />
           </a>
         </div>
@@ -86,14 +86,14 @@ const Header = () => {
           <ul className="flex space-x-4">
             <li>
               <a href="/Login">
-                <button className="text-white bg-yellow-400 rounded-md px-4 py-2 hover:bg-yellow-500">
+                <button className="text-white bg-yellow-400 rounded-md px-4 py-2 cursor-pointer hover:bg-yellow-500">
                   Entrar
                 </button>
               </a>
             </li>
             <li>
               <a href="/Cadastrar">
-                <button className="text-white bg-black rounded-md px-4 py-2 hover:bg-gray-900">
+                <button className="text-white bg-black rounded-md px-4 py-2 cursor-pointer hover:bg-gray-900">
                   Cadastrar
                 </button>
               </a>
