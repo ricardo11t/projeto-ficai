@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { CidadesContext } from '../context/CidadesProvider';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -52,6 +53,7 @@ const Header = () => {
             mt: 1
           }}
         >
+<<<<<<< HEAD
           <Paper
             sx={{
               width: 200,
@@ -77,6 +79,19 @@ const Header = () => {
           </Paper>
         </Collapse>
       </div>
+=======
+          <List component="div" disablePadding>
+            {Object.keys(cidades).map((cidade, index) => (
+              <Link key={index} to={`/${cidade}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <ListItemText primary={cidade} />
+                </ListItemButton>
+              </Link>
+            ))}
+          </List>
+        </Paper>
+      </Collapse>
+>>>>>>> a590fef2318d3257ceadf11669ff497d7e07cfdc
     </div>
   );
 };
