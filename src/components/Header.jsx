@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom'; // Importe o Link
 import Navbar from './Navbar';
 import { CidadesContext } from '../context/CidadesProvider';
 import {
@@ -24,13 +25,13 @@ const Header = () => {
       <div className="flex justify-between bg-primary p-4 items-center">
         {/* Logo */}
         <div className="ml-4">
-          <a href="/">
+          <Link to="/"> {/* Substitua a tag <a> por <Link> */}
             <img
               src="/src/img/ficai-logo.png"
               alt="Ficaí Logo"
               className="h-20 cursor-pointer p-0"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Menu e Botões */}
@@ -85,18 +86,18 @@ const Header = () => {
           {/* Botões de login/cadastro */}
           <ul className="flex space-x-4">
             <li>
-              <a href="/Login">
+              <Link to="/login"> {/* Substitua por Link */}
                 <button className="text-white bg-yellow-400 rounded-md px-4 py-2 cursor-pointer hover:bg-yellow-500">
                   Entrar
                 </button>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/Cadastrar">
+              <Link to="/cadastro"> {/* Ajuste para o caminho correto */}
                 <button className="text-white bg-black rounded-md px-4 py-2 cursor-pointer hover:bg-gray-900">
                   Cadastrar
                 </button>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
