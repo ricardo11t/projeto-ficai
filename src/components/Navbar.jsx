@@ -21,9 +21,8 @@ const Navbar = () => {
   return (
     <div className="flex justify-center bg-primary p-4 items-center text-white gap-5">
       <div className=''>
-                <List component="nav">
+        <Link to={'/'}>
           <ListItemButton
-            onClick={handleClick}
             sx={{
               backgroundColor: '#c87548',
               color: 'white',
@@ -33,10 +32,9 @@ const Navbar = () => {
               borderColor: 'white',
             }}
           >
-            <ListItemText primary="Cidades" />
-            {open ? <ExpandLess /> : <ExpandMore />}
+            <ListItemText primary="Home" />
           </ListItemButton>
-        </List>
+        </Link>
       </div>
       {/* Menu de cidades centralizado */}
       <div className="relative">
