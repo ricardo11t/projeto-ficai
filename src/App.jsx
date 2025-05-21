@@ -4,6 +4,7 @@ import Landingpage from './pages/Landingpage'
 import Login from './pages/Login'
 import Fortaleza from './pages/Fortaleza'
 import Cadastro from './pages/Cadastro'
+import Aracati from './pages/Aracati'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/fortaleza" element={<Fortaleza />} />
+      <Route path="/aracati" element={<Aracati />}/>
     </Routes>
   )
 }
