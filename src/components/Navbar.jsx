@@ -1,5 +1,4 @@
 import { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
 import {
   Collapse,
   List,
@@ -20,7 +19,23 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-center bg-orange-700 p-4 items-center text-white">
+    <div className="flex justify-center bg-primary p-4 items-center text-white gap-5">
+      <div className=''>
+        <Link to={'/'}>
+          <ListItemButton
+            sx={{
+              backgroundColor: '#c87548',
+              color: 'white',
+              '&:hover': { backgroundColor: '#ffba01' },
+              borderRadius: 2,
+              border: 1,
+              borderColor: 'white',
+            }}
+          >
+            <ListItemText primary="Home" />
+          </ListItemButton>
+        </Link>
+      </div>
       {/* Menu de cidades centralizado */}
       <div className="relative">
         <List component="nav">
@@ -61,23 +76,6 @@ const Navbar = () => {
               overflow: 'hidden',
             }}
           >
-            <List component="div" disablePadding>
-              {Object.keys(cidades).map((key, index) => {
-                const cidade = cidades[key];
-                return (
-                  <ListItemButton
-                    key={index}
-                    component={Link}
-                    to={`/${cidade.nome?.toLowerCase() || cidade}`}
-                  >
-                    <ListItemText primary={cidade.nome || cidade} />
-                  </ListItemButton>
-                );
-              })}
-            </List>
-          </Paper>
-        </Collapse>
-      </div>
           <List component="div" disablePadding>
             {Object.keys(cidades).map((cidade, index) => (
               <Link key={index} to={`/${cidade}`} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -87,8 +85,9 @@ const Navbar = () => {
               </Link>
             ))}
           </List>
-        </Paper>
-      </Collapse>
+          </Paper>
+        </Collapse>
+      </div>
     </div>
   );
 };
