@@ -10,6 +10,21 @@
                 "nome": "Praia de Iracema",
                 "img": "/src/img/praiadeiracema.png",
                 "desc": "A Praia de Iracema, em Fortaleza, é uma das principais praias da cidade, conhecida por sua área aterrada e por ser um local frequentado para eventos. O nome da praia e do bairro homônimo, vem da personagem Iracema, do romance de José de Alencar. A praia é um ponto turístico e cultural importante de Fortaleza, com atividades como passeios, esportes e cultura. "
+            },
+            "ponto3": {
+                "nome": "Mercado Central",
+                "img": "/src/img/mercado-central.jpg",
+                "desc": "O Mercado Central de Fortaleza, localizado no coração da capital cearense, é um dos pontos turísticos e culturais mais vibrantes da cidade. Inaugurado em 1931, o mercado é um símbolo da identidade nordestina, combinando tradição, comércio e cultura em um mesmo espaço. Com sua arquitetura característica e atmosfera animada, o local atrai tanto moradores quanto turistas em busca de produtos típicos, artesanato e experiências autênticas."
+            },
+             "ponto4": {
+                "nome": "Catedral Metropolitana",
+                "img": "/src/img/catedral.jpg",
+                "desc": "A Catedral Metropolitana de Fortaleza, oficialmente chamada de Catedral de Nossa Senhora da Assunção, é um dos edifícios religiosos mais icônicos da capital cearense. Localizada no Centro da cidade, sua imponente estrutura em estilo neogótico chama a atenção pela grandiosidade e pelos detalhes arquitetônicos, tornando-se um ponto de referência tanto para fiéis quanto para turistas."
+            },
+             "ponto5": {
+                "nome": "Dragão do Mar",
+                "img": "/src/img/dragão-do-mar.jpg",
+                "desc": "Localizado no Centro de Fortaleza, o Dragão do Mar é um dos principais polos culturais do Nordeste brasileiro. Batizado em homenagem ao jangadeiro Francisco José do Nascimento (1839–1914), símbolo da abolição da escravidão no Ceará, o espaço reúne arte, cinema, teatro, música e exposições em um ambiente vibrante e acessível."
             }
         },
         "Aracati": {
