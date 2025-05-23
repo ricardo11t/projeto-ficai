@@ -15,6 +15,15 @@ import {
 } from '@mui/material';
 import { PersonAdd as PersonAddIcon, Visibility, VisibilityOff } from '@mui/icons-material';
 
+const colorPalette = {
+  main: '#A04821',
+  dark: '#803618',
+  light: '#BF6A4A',
+  contrast: '#F5E6D8',
+  text: '#3E2723',
+  alphaMain: (opacity) => `rgba(160, 72, 33, ${opacity})`
+};
+
 const Cadastro = () => {
   const [formData, setFormData] = useState({
     nome: '',
@@ -30,21 +39,18 @@ const Cadastro = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const validateForm = () => {
     const validations = [
-      [!formData.nome.trim(), 'O nome completo é obrigatório'],
-      [!formData.email.trim(), 'O email é obrigatório'],
-      [!formData.password, 'A senha é obrigatória'],
-      [!formData.confirmPassword, 'Confirme sua senha'],
-      [formData.password !== formData.confirmPassword, 'As senhas não coincidem'],
-      [formData.password.length < 6, 'A senha deve ter pelo menos 6 caracteres'],
-      [!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email), 'Por favor, insira um email válido']
+      [!formData.nome.trim(), 'Nome completo é obrigatório'],
+      [!formData.email.trim(), 'Email é obrigatório'],
+      [!formData.password, 'Senha é obrigatória'],
+      [!formData.confirmPassword, 'Confirme a senha'],
+      [formData.password !== formData.confirmPassword, 'Senhas não coincidem'],
+      [formData.password.length < 6, 'Senha deve ter 6+ caracteres'],
+      [!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email), 'Email inválido']
     ];
 
     for (const [condition, message] of validations) {
@@ -63,22 +69,17 @@ const Cadastro = () => {
 
     setLoading(true);
     try {
-      // Simulação de API com tratamento de erro
       await new Promise((resolve, reject) => {
         setTimeout(() => {
-          // Simular sucesso aleatório para demonstração
-          Math.random() > 0.2 ? resolve() : reject(new Error('Erro de conexão com o servidor'));
+          Math.random() > 0.2 ? resolve() : reject(new Error('Erro de conexão'));
         }, 1500);
       });
       
       navigate('/login', {
-        state: {
-          registrationSuccess: true,
-          message: 'Cadastro realizado com sucesso! Faça login.'
-        }
+        state: { registrationSuccess: true }
       });
-    } catch (err) {
-      setError(err.message || 'Erro ao cadastrar. Por favor, tente novamente.');
+    } catch {
+      setError('Erro ao cadastrar. Tente novamente.');
     } finally {
       setLoading(false);
     }
@@ -95,19 +96,29 @@ const Cadastro = () => {
           p: 4,
           borderRadius: 2,
           boxShadow: 3,
-          backgroundColor: 'background.paper',
+          backgroundColor: colorPalette.contrast,
+          border: `1px solid ${colorPalette.light}`
         }}
       >
         <PersonAddIcon sx={{
           fontSize: 50,
-          color: 'primary.main',
+          color: colorPalette.main,
           mb: 2,
-          backgroundColor: 'rgba(255, 152, 0, 0.1)',
-          p: 1,
-          borderRadius: '50%'
+          backgroundColor: colorPalette.alphaMain(0.1),
+          p: 1.5,
+          borderRadius: '50%',
+          border: `2px solid ${colorPalette.main}`
         }} />
 
-        <Typography component="h1" variant="h5" sx={{ fontWeight: 'bold', color: 'text.primary' }}>
+        <Typography 
+          component="h1" 
+          variant="h5" 
+          sx={{ 
+            fontWeight: 'bold', 
+            color: colorPalette.text,
+            mb: 1
+          }}
+        >
           Criar Nova Conta
         </Typography>
 
@@ -115,13 +126,18 @@ const Cadastro = () => {
           component="form"
           onSubmit={handleSubmit}
           sx={{
-            mt: 3,
+            mt: 2,
             width: '100%',
             '& .MuiTextField-root': { mb: 2 }
           }}
         >
           {error && (
-            <Alert severity="error" sx={{ mb: 3 }}>
+            <Alert severity="error" sx={{ 
+              mb: 3,
+              backgroundColor: colorPalette.alphaMain(0.15),
+              color: colorPalette.text,
+              border: `1px solid ${colorPalette.main}`
+            }}>
               {error}
             </Alert>
           )}
@@ -132,9 +148,13 @@ const Cadastro = () => {
             name="nome"
             value={formData.nome}
             onChange={handleChange}
-            variant="outlined"
-            required
-            autoFocus
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { borderColor: colorPalette.light },
+                '&:hover fieldset': { borderColor: colorPalette.main },
+                '&.Mui-focused fieldset': { borderColor: colorPalette.dark }
+              }
+            }}
           />
 
           <TextField
@@ -144,8 +164,13 @@ const Cadastro = () => {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            variant="outlined"
-            required
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { borderColor: colorPalette.light },
+                '&:hover fieldset': { borderColor: colorPalette.main },
+                '&.Mui-focused fieldset': { borderColor: colorPalette.dark }
+              }
+            }}
           />
 
           <TextField
@@ -155,20 +180,25 @@ const Cadastro = () => {
             type={showPassword ? 'text' : 'password'}
             value={formData.password}
             onChange={handleChange}
-            variant="outlined"
-            required
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton
                     onClick={() => setShowPassword(!showPassword)}
                     edge="end"
-                    aria-label="toggle password visibility"
+                    sx={{ color: colorPalette.main }}
                   >
                     {showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
               ),
+            }}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { borderColor: colorPalette.light },
+                '&:hover fieldset': { borderColor: colorPalette.main },
+                '&.Mui-focused fieldset': { borderColor: colorPalette.dark }
+              }
             }}
           />
 
@@ -179,20 +209,25 @@ const Cadastro = () => {
             type={showConfirmPassword ? 'text' : 'password'}
             value={formData.confirmPassword}
             onChange={handleChange}
-            variant="outlined"
-            required
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                     edge="end"
-                    aria-label="toggle confirm password visibility"
+                    sx={{ color: colorPalette.main }}
                   >
                     {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
               ),
+            }}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { borderColor: colorPalette.light },
+                '&:hover fieldset': { borderColor: colorPalette.main },
+                '&.Mui-focused fieldset': { borderColor: colorPalette.dark }
+              }
             }}
           />
 
@@ -202,19 +237,16 @@ const Cadastro = () => {
             variant="contained"
             disabled={loading}
             sx={{
-              mt: 3,
+              mt: 2,
               py: 1.5,
-              bgcolor: 'primary.main',
-              '&:hover': { bgcolor: 'primary.dark' },
+              backgroundColor: colorPalette.main,
+              '&:hover': { backgroundColor: colorPalette.dark },
               color: 'white',
               fontWeight: 'bold',
+              boxShadow: `0 2px 4px ${colorPalette.alphaMain(0.4)}`
             }}
           >
-            {loading ? (
-              <CircularProgress size={24} color="inherit" />
-            ) : (
-              'Cadastrar'
-            )}
+            {loading ? <CircularProgress size={24} color="inherit" /> : 'Cadastrar'}
           </Button>
 
           <Grid container justifyContent="center" sx={{ mt: 2 }}>
@@ -222,13 +254,16 @@ const Cadastro = () => {
               component={RouterLink}
               to="/login"
               variant="body2"
-              sx={{
-                color: 'primary.main',
+              sx={{ 
+                color: colorPalette.main,
                 fontWeight: 'bold',
-                '&:hover': { textDecoration: 'underline' }
+                '&:hover': { 
+                  color: colorPalette.dark,
+                  textDecoration: 'underline'
+                }
               }}
             >
-              Já possui uma conta? Faça login
+              Já tem conta? Faça login
             </Link>
           </Grid>
         </Box>
