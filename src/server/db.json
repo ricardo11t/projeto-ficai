@@ -64,12 +64,12 @@
                 "img": "src/img/engenho.jpg",
                 "desc": "O Engenho São Luiz em Aquiraz é um tradicional ponto turístico que preserva o processo artesanal de produção da rapadura. Oferece visitas guiadas, degustações e venda de produtos típicos à base de cana-de-açúcar."
             },
-          "ponto4": {
+            "ponto4": {
                 "nome": "Praia do Batoque",
                 "img":"src/img/praiabatoque.jpg",
                 "desc": "A Praia do Batoque, em Aquiraz, é uma área de beleza natural preservada, caracterizada por sua extensa faixa litorânea e ambiente tranquilo. Desde 2003, integra a Reserva Extrativista Marinha do Batoque, protegendo o modo de vida tradicional de comunidades pesqueiras locais."
             },
-            "pont5":{
+            "ponto5":{
                 "nome": "Praia do Presídio",
                 "img":"src/img/praiapresidio.jpg",
                 "desc": "A Praia do Presídio, em Aquiraz, destaca-se por suas águas calmas e mornas, ideais para famílias, e por sua rica história ligada às invasões holandesas do século XVII. Com infraestrutura turística e beleza natural, é um refúgio tranquilo no litoral cearense."

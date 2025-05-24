@@ -40,6 +40,37 @@
   padding: 20px 30px;
 }
 
+/* Novos ajustes para telas intermediárias (769px - 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .sobre-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-container {
+    width: 80% !important;
+    margin: 0 auto;
+    flex: none;
+  }
+
+  .main-header-image {
+    height: 400px; /* Altura ajustada para telas médias */
+  }
+
+  .sobre-fortal {
+    width: 100%;
+    padding: 30px 15%;
+    text-align: center;
+  }
+}
+
+/* Ajuste para garantir prioridade na faixa intermediária */
+@media (max-width: 992px) {
+  .image-container {
+    width: 80% !important; /* Sobrescreve regras anteriores */
+  }
+}
+
 /* Layout Mobile */
 @media (max-width: 768px) {
   .sobre-container {
