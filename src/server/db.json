@@ -75,13 +75,6 @@
                 "desc": "A Praia do Presídio, em Aquiraz, destaca-se por suas águas calmas e mornas, ideais para famílias, e por sua rica história ligada às invasões holandesas do século XVII. Com infraestrutura turística e beleza natural, é um refúgio tranquilo no litoral cearense."
             }
 
-        },
-        "Beberibe": {
-            "ponto1": {
-                "nome": "Morro Branco",
-                "img": "/src/img/morrobranco.png",
-                "desc": "Morro Branco é um praia brasileira localizada na cidade de Beberibe no estado do Ceará. É conhecido pelas diversas colorações de areias, usadas no trabalho de silicografia."
-            }
         }
     }
 }

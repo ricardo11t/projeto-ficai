@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Fortaleza from './pages/Fortaleza'
 import Cadastro from './pages/Cadastro'
 import Aquiraz from "./pages/Aquiraz";
+import Cidades from './pages/Cidades'
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/fortaleza" element={<Fortaleza />} />
-      <Route path="/Aquiraz" element={<Aquiraz />} />
+      <Route path="/aquiraz" element={<Aquiraz />} />
+      <Route path='/cidades' element={<Cidades />} />
     </Routes>
   )
 }

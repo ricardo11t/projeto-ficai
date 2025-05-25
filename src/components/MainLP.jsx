@@ -7,6 +7,7 @@ import {
   Skeleton,
   Typography,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const MainLP = () => {
   const { cidades } = useContext(CidadesContext);
@@ -43,6 +44,9 @@ const MainLP = () => {
           ))}
         </div>
       )}
+      <div className='flex justify-center mb-5'>
+        <Link to={`/cidades`}><button className='bg-primary text-white cursor-pointer rounded pl-20 pr-20 pb-1 pt-1 hover:bg-primary/95'>Ver Mais</button></Link>
+      </div>
     </>
   );
 };

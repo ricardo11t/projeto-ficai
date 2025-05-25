@@ -13,14 +13,29 @@ import { Link } from 'react-router-dom';
 const Cards = () => {
     const { cidades } = useContext(CidadesContext);
 
-return (
-    <div className='mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-10'>
-        {Object.keys(cidades).map((cidade) =>
-            Object.keys(cidades[cidade]).map((pontoKey) => {
-                const ponto = cidades[cidade][pontoKey];
-                return (
-                <Card key={pontoKey} className="flex flex-col justify-between h-full">
-                    <CardMedia 
+    const pontos = Object.keys(cidades).flatMap((cidade) =>
+        Object.keys(cidades[cidade]).map((pontokey) => ({
+            cidade,
+            ...cidades[cidade][pontokey],
+        }))
+    );
+
+    const embaralharArrayDePontos = (array) => {
+        const copia = [...array];
+        for (let i = copia.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [copia[i], copia[j]] = [copia[j], copia[i]];
+        }
+        return copia;
+      };
+
+    const pontosAleatorios = embaralharArrayDePontos(pontos).slice(0, 6);
+
+    return (
+        <div className='mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-10'>
+            {pontosAleatorios.map((ponto, i) => (
+                <Card key={i} className="flex flex-col justify-between h-full">
+                    <CardMedia
                         component="img"
                         sx={{ height: 200, borderTopLeftRadius: 10, borderTopRightRadius: 10 }}
                         image={ponto.img}
@@ -34,16 +49,14 @@ return (
                         </Typography>
                     </CardContent>
                     <CardActions className="justify-start mt-auto">
-                        <Link to={`/${cidade}`}>
+                        <Link to={`/${ponto.cidade}`}>
                             <Button size="small">Ver Detalhes</Button>
                         </Link>
                     </CardActions>
                 </Card>
-                );
-            })
-        )}
-    </div>
-);
-}
+            ))}
+        </div>
+    );
+};
 
-export default Cards;
+export default Cards
