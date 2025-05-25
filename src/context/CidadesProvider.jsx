@@ -6,6 +6,12 @@ const CidadesProvider = ({ children }) => {
   const [cidades, setCidades] = useState([]);
   const URL = "http://localhost:3000/cidades";
 
+  const cidadesPesquisar = 
+    Object.keys(cidades).map((cidade) => {
+      return {label: `${cidade}` }
+    });
+  
+
 const getCities = async () => {
   try {
     const res = await fetch(URL);
@@ -21,10 +27,10 @@ const getCities = async () => {
   } ,[]);
 
   return (
-    <CidadesContext.Provider value={{cidades}}>
+    <CidadesContext.Provider value={{cidades, cidadesPesquisar}}>
       {children}
     </CidadesContext.Provider>
   )
 }
 
-export default CidadesProvider
+export default CidadesProvider;

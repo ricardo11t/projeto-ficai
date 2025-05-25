@@ -40,20 +40,15 @@ const CardsComFilters = () => {
 
     const filter = Object.keys(cidades).map((cidade, i) => (
         <div key={i} className='flex justify-center gap-2'>
-            <button
-                className='bg-white outline rounded cursor-pointer p-2 hover:bg-gray-300'
-                onClick={() => handleClick(cidade)}
-            >
-                {cidade}
-            </button>
+            <Button sx={{ borderColor: 'black', color: 'black',}} variant='outlined' onClick={() => handleClick(cidade)}>{cidade}</Button>
         </div>
     ));
 
     return (
         <>
             <div className='flex justify-baseline ml-10 gap-2 mt-5 mb-5'>
-                <div><h5 className='p-2'>Filtro:</h5></div>
-                <div><button className='bg-white outline rounded cursor-pointer p-2 hover:bg-gray-300' onClick={() => setPontosAleatorios(shuffle(pontos))}>Todos</button></div>
+                <div><h5 className='p-2 font-semibold text-2xl'>Filtro:</h5></div>
+                <Button variant='outlined' sx={{borderColor:'black', color:'black'}} onClick={() => handleClick(setPontosAleatorios(shuffle(pontos)))}>Todos</Button>
                 <div className='flex gap-2'>{filter}</div>
             </div>
             <div className='mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-10'>
