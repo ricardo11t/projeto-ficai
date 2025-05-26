@@ -38,7 +38,12 @@ const MainLP = () => {
 
       <h3 className='mt-10 text-[30px] text-center font-semibold'>Destinos Populares</h3>
       {cidades.length !== 0 ? (
-        <Cards />
+        <>
+          <Cards />
+        <div className='flex justify-center mb-5'>
+          <Link to={`/cidades`}><Button variant='contained' sx={{ backgroundColor: '#c85a29', paddingLeft:20, paddingRight:20}}>Ver Mais</Button></Link>
+        </div>
+      </>
       ) : (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-6'>
           {Array.from({ length: 3 }).map((_, idx) => (
@@ -65,9 +70,6 @@ const MainLP = () => {
           ))}
         </div>
       )}
-      <div className='flex justify-center mb-5'>
-        <Link to={`/cidades`}><Button variant='contained' sx={{ backgroundColor: '#c85a29', paddingLeft:20, paddingRight:20}}>Ver Mais</Button></Link>
-      </div>
       <div className='flex flex-col w-full h-80 bg-amber-600'>
         <div className='mt-10'>
         <div className='text-center mt-5'>
