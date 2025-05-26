@@ -1,92 +1,43 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import {
-  Collapse,
-  List,
-  ListItemButton,
-  ListItemText,
-  Paper,
-} from '@mui/material';
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
+  Autocomplete,
+  Button,
+  TextField,
+} from '@mui/material'; '@mui/icons-material';
 import { CidadesContext } from '../context/CidadesProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
-  const { cidades } = useContext(CidadesContext);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  const { cidadesPesquisar } = useContext(CidadesContext);
+  const navigate = useNavigate();
 
   return (
-    <div className="flex justify-center bg-primary p-4 items-center text-white gap-5">
-      <div className=''>
+    <div className="flex justify-center bg-primary p-4 items-center text-white gap-5 w-full">
+      <div>
         <Link to={'/'}>
-          <ListItemButton
-            sx={{
-              backgroundColor: '#c87548',
-              color: 'white',
-              '&:hover': { backgroundColor: '#ffba01' },
-              borderRadius: 2,
-              border: 1,
-              borderColor: 'white',
-            }}
-          >
-            <ListItemText primary="Home" />
-          </ListItemButton>
+          <Button variant='contained' sx={{ backgroundColor: '#dc7633' }}>Home</Button>
         </Link>
       </div>
-      {/* Menu de cidades centralizado */}
-      <div className="relative">
-        <List component="nav">
-          <ListItemButton
-            onClick={handleClick}
-            sx={{
-              backgroundColor: '#c87548',
-              color: 'white',
-              '&:hover': { backgroundColor: '#ffba01' },
-              borderRadius: 2,
-              border: 1,
-              borderColor: 'white',
-            }}
-          >
-            <ListItemText primary="Cidades" />
-            {open ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
-        </List>
-
-        <Collapse
-          in={open}
-          timeout="auto"
-          unmountOnExit
-          sx={{
-            position: 'absolute',
-            top: '100%',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            zIndex: 50,
-            mt: 1
+      <div className='flex-1 min-w-[200px]'>
+        <Autocomplete
+        className='text-white'
+          options={cidadesPesquisar}
+          size='small'
+          onChange={(_, newValue) => {
+            if (newValue) {
+              navigate(`/${newValue.label}`);
+            }
           }}
-        >
-          <Paper
-            sx={{
-              width: 200,
-              borderRadius: 2,
-              boxShadow: 3,
-              overflow: 'hidden',
-            }}
-          >
-          <List component="div" disablePadding>
-            {Object.keys(cidades).map((cidade, index) => (
-              <Link key={index} to={`/${cidade}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemText primary={cidade} />
-                </ListItemButton>
-              </Link>
-            ))}
-          </List>
-          </Paper>
-        </Collapse>
+          sx={{
+            width: '100%',
+            backgroundColor:'#fff',
+            borderRadius:1,
+            boxShadow:1,
+            input: {color:'black'},
+            label: {color: 'black'}
+          }}
+          renderInput={(params) => <TextField {...params} label="Pesquisar cidade" variant="outlined" />}
+        />
       </div>
     </div>
   );

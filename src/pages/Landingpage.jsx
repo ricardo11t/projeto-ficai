@@ -7,6 +7,7 @@ const Landingpage = () => {
     <>
       <Header />
       <main>
+        <section><img src="../img/imagembg.png" alt="" /></section>
         <MainLP />
       </main>
       <Footer />

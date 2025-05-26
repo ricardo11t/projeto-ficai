@@ -1,0 +1,295 @@
+.container-fortaleza {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  color: #2c3e50;
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 40px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #169a0f;
+}
+
+
+/* Layout Desktop - Imagem e texto lado a lado */
+.sobre-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin: 40px 0;
+}
+
+.image-container {
+  flex: 1;
+  min-width: 45%;
+  margin: 0;
+}
+
+.main-header-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.sobre-ubajara {
+  flex: 1;
+  padding: 20px 30px;
+}
+
+/* Layout Mobile */
+@media (max-width: 768px) {
+  .sobre-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .image-container {
+    width: 80% !important; /* Força 80% da largura */
+    margin: 0 auto;
+    flex: none;
+  }
+
+  .main-header-image {
+    height: 300px;
+    width: 100%; /* Preenche 100% do container pai (que tem 80% da tela) */
+  }
+
+  .sobre-fortal {
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  /* Ajuste adicional para telas muito pequenas */
+  @media (max-width: 480px) {
+    .image-container {
+      width: 90% !important;
+    }
+    
+    .main-header-image {
+      height: 250px;
+    }
+  }
+}
+/* Responsivo */
+@media (max-width: 992px) {
+  .sobre-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .image-container,
+  .sobre-fortal {
+    width: 100%;
+    flex: none;
+  }
+  
+  .main-header-image {
+    height: 350px;
+  }
+  
+  .sobre-fortal {
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+  
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .orange-line {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header-image {
+    height: 280px;
+  }
+  
+  .sobre-fortal {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    padding-bottom: 12px;
+  }
+  
+  .sobre-fortal p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header-image {
+    height: 220px;
+  }
+  
+  .title {
+    font-size: 1.6rem;
+  }
+  
+  .orange-line {
+    width: 60px;
+    height: 2px;
+  }
+}/* Pontos Turísticos */
+.pontos-turisticos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.ponto-turistico-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 3px solid #189d1c;
+}
+
+.card-content {
+  padding: 15px;
+  min-height: 150px;
+}
+
+.card-content h3 {
+  color: #2c3e50;
+  margin: 0 0 15px;
+  font-size: 1.4rem;
+}
+
+.card-content p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Seções Especiais */
+.como-chegar-section,
+.dicas-viagem {
+  padding: 40px;
+  border-radius: 12px;
+  margin: 50px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.como-chegar-section {
+  background-color: #f8f9fa;
+  border-left: 4px solid #34ce20;
+}
+
+.dicas-viagem {
+  background-color: #f8f9fa;
+  border-left: 4px solid #1ad433;
+}
+
+.como-chegar-section h2,
+.dicas-viagem h2 {
+  color: #2c3e50;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  position: relative;
+  padding-left: 40px;
+}
+
+.como-chegar-section h2::before { content: ''; }
+.dicas-viagem h2::before { content: '📌'; }
+
+.como-chegar-section h2::before,
+.dicas-viagem h2::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+}
+
+/* Listas */
+.dicas-viagem ol {
+  list-style: none;
+  counter-reset: dicas-counter;
+  padding: 0;
+  margin: 0;
+}
+
+.dicas-viagem li {
+  counter-increment: dicas-counter;
+  margin-bottom: 25px;
+  padding: 20px 20px 20px 70px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.dicas-viagem li::before {
+  content: counter(dicas-counter);
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px;
+  height: 35px;
+  background: #543b11;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container-fortaleza { padding: 10px; }
+  
+  .title {
+    font-size: 1.8rem;
+    margin: 30px 0;
+  }
+
+  .main-header-image {
+    height: 300px;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .pontos-turisticos-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .como-chegar-section,
+  .dicas-viagem {
+    padding: 25px;
+    margin: 30px 0;
+  }
+
+  .card-image { height: 180px; }
+}
+
+/* Efeitos Hover */
+.ponto-turistico-card:hover { transform: translateY(-5px); }
+.como-chegar-section:hover,
+.dicas-viagem li:hover { transform: translateX(10px); }
