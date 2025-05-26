@@ -1,4 +1,7 @@
+import React from 'react';
 import '../assets/styles/Aquiraz.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Aquiraz = () => {
     const pontosTuristicos = [
@@ -38,74 +41,79 @@ const Aquiraz = () => {
     ];
 
     return (
-        <div className='container-aquiraz'>
-            <div className="sobre-container">
-                <div className="image-container">
-                    <img
-                        src="src/img/aquiraz.jpg"
-                        alt="Vista aérea de Aquiraz com praias e vegetação"
-                        className="main-header-image"
-                        loading="lazy"
-                    />
-                </div>
-
-                <section className='sobre-aquiraz'>
-                    <h2 className='title'>
-                        Sobre Aquiraz
-                        <span className="orange-line"></span>
-                    </h2>
-                    <p>
-                        Aquiraz é uma charmosa cidade do litoral cearense, conhecida por suas praias paradisíacas,
-                        história rica e atrações turísticas como o famoso Beach Park. Foi a primeira capital do Ceará
-                        e ainda preserva parte de sua arquitetura colonial. A cidade combina belezas naturais com
-                        tradições culturais e é um ótimo destino tanto para famílias quanto para quem busca sossego.
-                        É também um ponto de parada obrigatório para quem visita Fortaleza.
-                    </p>
-                </section>
-            </div>
-
-            <h2 className='title'>Pontos Turísticos</h2>
-            <div className="pontos-turisticos-grid">
-                {pontosTuristicos.map((ponto) => (
-                    <article className="ponto-turistico-card" key={ponto.title}>
+        <>
+            <Header />
+            <div className='container-aquiraz'>
+                <div className="sobre-container">
+                    <div className="image-container">
                         <img
-                            src={ponto.img}
-                            alt={`${ponto.title} - Aquiraz`}
-                            className="card-image"
+                            src="src/img/aquiraz.jpg"
+                            alt="Vista aérea de Aquiraz com praias e vegetação"
+                            className="main-header-image"
                             loading="lazy"
                         />
-                        <div className="card-content">
-                            <h3>{ponto.title}</h3>
-                            <p>{ponto.text}</p>
-                        </div>
-                    </article>
-                ))}
-            </div>
+                    </div>
 
-            <section className="como-chegar-section">
-                <h2>Como Chegar</h2>
-                <p>
-                    Aquiraz está localizada a cerca de 30 km de Fortaleza. Para chegar lá, você pode:
-                </p>
-                <ul>
-                    <li>Alugar um carro na capital e seguir pela CE-040</li>
-                    <li>Usar transporte por aplicativo ou táxi</li>
-                    <li>Pegar um ônibus intermunicipal na rodoviária de Fortaleza</li>
-                </ul>
-                <p>
-                    A estrada é bem sinalizada e a viagem dura cerca de 40 minutos a 1 hora, dependendo do trânsito.
-                </p>
-            </section>
+                    <section className='sobre-aquiraz'>
+                        <h2 className='title'>
+                            Sobre Aquiraz
+                            <span className="orange-line"></span>
+                        </h2>
+                        <p>
+                            Aquiraz é uma charmosa cidade do litoral cearense, conhecida por suas praias paradisíacas,
+                            história rica e atrações turísticas como o famoso Beach Park. Foi a primeira capital do Ceará
+                            e ainda preserva parte de sua arquitetura colonial. A cidade combina belezas naturais com
+                            tradições culturais e é um ótimo destino tanto para famílias quanto para quem busca sossego.
+                            É também um ponto de parada obrigatório para quem visita Fortaleza.
+                        </p>
+                    </section>
+                </div>
 
-            <section className="dicas-viagem">
-                <h2>Dicas de Viagem</h2>
-                <ol>
-                    {dicasViagem.map((dica, index) => (
-                        <li key={index}>{dica}</li>
+                <h2 className='title'>Pontos Turísticos</h2>
+                <div className="pontos-turisticos-grid">
+                    {pontosTuristicos.map((ponto) => (
+                        <article className="ponto-turistico-card" key={ponto.title}>
+                            <img
+                                src={ponto.img}
+                                alt={`${ponto.title} - Aquiraz`}
+                                className="card-image"
+                                loading="lazy"
+                            />
+                            <div className="card-content">
+                                <h3>{ponto.title}</h3>
+                                <p>{ponto.text}</p>
+                            </div>
+                        </article>
                     ))}
-                </ol>
-            </section>
-        </div>
+                </div>
+
+                <section className="como-chegar-section">
+                    <h2>Como Chegar</h2>
+                    <p>
+                        Aquiraz está localizada a cerca de 30 km de Fortaleza. Para chegar lá, você pode:
+                    </p>
+                    <ul>
+                        <li>Alugar um carro na capital e seguir pela CE-040</li>
+                        <li>Usar transporte por aplicativo ou táxi</li>
+                        <li>Pegar um ônibus intermunicipal na rodoviária de Fortaleza</li>
+                    </ul>
+                    <p>
+                        A estrada é bem sinalizada e a viagem dura cerca de 40 minutos a 1 hora, dependendo do trânsito.
+                    </p>
+                </section>
+
+                <section className="dicas-viagem">
+                    <h2>Dicas de Viagem</h2>
+                    <ol>
+                        {dicasViagem.map((dica, index) => (
+                            <li key={index}>{dica}</li>
+                        ))}
+                    </ol>
+                </section>
+            </div>
+            <Footer />
+        </>
     );
 };
-export default Aquiraz
+
+export default Aquiraz;
