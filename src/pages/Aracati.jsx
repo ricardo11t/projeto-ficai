@@ -57,7 +57,7 @@ import Footer from '../components/Footer'
             <div className="sobre-container">
                 <div className="image-container">
                     <img
-                        src="src/img/aracati.jpg"
+                        src="https://turismo.b-cdn.net/wp-content/uploads/2015/08/Canoa-Quebrada-no-Cear%C3%A1.jpg"
                         alt="Materiais AudioVisuais mostrando Aracati e seus pontos turísticos"
                         className="main-header-image"
                         loading="lazy"
