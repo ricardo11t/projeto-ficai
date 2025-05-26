@@ -10,6 +10,21 @@
                 "nome": "Praia de Iracema",
                 "img": "/src/img/praiadeiracema.png",
                 "desc": "A Praia de Iracema, em Fortaleza, é uma das principais praias da cidade, conhecida por sua área aterrada e por ser um local frequentado para eventos. O nome da praia e do bairro homônimo, vem da personagem Iracema, do romance de José de Alencar. A praia é um ponto turístico e cultural importante de Fortaleza, com atividades como passeios, esportes e cultura. "
+            },
+            "ponto3": {
+                "nome": "Mercado Central",
+                "img": "/src/img/mercado-central.jpg",
+                "desc": "O Mercado Central de Fortaleza, localizado no coração da capital cearense, é um dos pontos turísticos e culturais mais vibrantes da cidade. Inaugurado em 1931, o mercado é um símbolo da identidade nordestina, combinando tradição, comércio e cultura em um mesmo espaço. Com sua arquitetura característica e atmosfera animada, o local atrai tanto moradores quanto turistas em busca de produtos típicos, artesanato e experiências autênticas."
+            },
+            "ponto4": {
+                "nome": "Catedral Metropolitana",
+                "img": "/src/img/catedral.jpg",
+                "desc": "A Catedral Metropolitana de Fortaleza, oficialmente chamada de Catedral de Nossa Senhora da Assunção, é um dos edifícios religiosos mais icônicos da capital cearense. Localizada no Centro da cidade, sua imponente estrutura em estilo neogótico chama a atenção pela grandiosidade e pelos detalhes arquitetônicos, tornando-se um ponto de referência tanto para fiéis quanto para turistas."
+            },
+            "ponto5": {
+                "nome": "Dragão do Mar",
+                "img": "/src/img/dragão-do-mar.jpg",
+                "desc": "Localizado no Centro de Fortaleza, o Dragão do Mar é um dos principais polos culturais do Nordeste brasileiro. Batizado em homenagem ao jangadeiro Francisco José do Nascimento (1839–1914), símbolo da abolição da escravidão no Ceará, o espaço reúne arte, cinema, teatro, música e exposições em um ambiente vibrante e acessível."
             }
         },
         "Aracati": {
@@ -19,11 +34,11 @@
                 "desc": "Canoa Quebrada é uma praia localizada no litoral leste do Estado do Ceará, Distante 163 km de Fortaleza e 12 km da sede do município de Aracati, à qual pertence. A sua paisagem é caracterizada por dunas e falésias avermelhadas de até trinta metros acima do nível do mar."
             }
         },
-        "Guaramiranga": {
+        "Ubajara": {
             "ponto1": {
-                "nome": "Guaramiranga",
-                "img": "/src/img/guaramiranga.png",
-                "desc": "Guaramiranga é um município brasileiro do estado do Ceará. Está localizado na região serrana do estado, a 105,5 km da capital do estado, Fortaleza. Segundo estimativa de 2019 do IBGE, o município tem cerca de 5.193 habitantes e 59 km² de área. Sua sede se localiza a 865 metros de altitude."
+                "nome": "Ubajara",
+                "img": "/src/img/ubajara3.jpg",
+                "desc": "Ubajara é uma cidade no Ceará conhecida pelo Parque Nacional de Ubajara, com atrações como a Gruta de Ubajara, trilhas ecológicas, cachoeiras e passeio de teleférico, ideal para turismo de natureza e aventura."
             }
         },
         "Jericoacoara": {
@@ -38,14 +53,28 @@
                 "nome": "Beach Park",
                 "img": "/src/img/beachpark.png",
                 "desc": "Beach Park é um destino turístico do litoral do Nordeste do Brasil, na praia de Porto das Dunas, município de Aquiraz, a 15 minutos de Fortaleza. Seu parque aquático é considerado o maior da América Latina, distribuído numa área total de 20.000 m² e 13 km² de área específica do parque aquático."
+            },
+            "ponto2": {
+                "nome": "Museu Centro hístorico",
+                "img": "src/img/museu-Aquiraz.jpg",
+                "desc": "O Museu Sacro São José de Ribamar, em Aquiraz, guarda um rico acervo de arte sacra dos séculos XVII ao XIX. Localizado em um prédio histórico, relembra o passado religioso e colonial da primeira capital do Ceará."
+            },
+            "ponto3": {
+                "nome": "Engenho Sao Luis",
+                "img": "src/img/engenho.jpg",
+                "desc": "O Engenho São Luiz em Aquiraz é um tradicional ponto turístico que preserva o processo artesanal de produção da rapadura. Oferece visitas guiadas, degustações e venda de produtos típicos à base de cana-de-açúcar."
+            },
+            "ponto4": {
+                "nome": "Praia do Batoque",
+                "img":"src/img/praiabatoque.jpg",
+                "desc": "A Praia do Batoque, em Aquiraz, é uma área de beleza natural preservada, caracterizada por sua extensa faixa litorânea e ambiente tranquilo. Desde 2003, integra a Reserva Extrativista Marinha do Batoque, protegendo o modo de vida tradicional de comunidades pesqueiras locais."
+            },
+            "ponto5":{
+                "nome": "Praia do Presídio",
+                "img":"src/img/praiapresidio.jpg",
+                "desc": "A Praia do Presídio, em Aquiraz, destaca-se por suas águas calmas e mornas, ideais para famílias, e por sua rica história ligada às invasões holandesas do século XVII. Com infraestrutura turística e beleza natural, é um refúgio tranquilo no litoral cearense."
             }
-        },
-        "Beberibe": {
-            "ponto1": {
-                "nome": "Morro Branco",
-                "img": "/src/img/morrobranco.png",
-                "desc": "Morro Branco é um praia brasileira localizada na cidade de Beberibe no estado do Ceará. É conhecido pelas diversas colorações de areias, usadas no trabalho de silicografia."
-            }
+
         }
     }
 }

@@ -15,11 +15,18 @@ import {
 } from '@mui/material';
 import { Lock as LockIcon, Visibility, VisibilityOff } from '@mui/icons-material';
 
+const colorPalette = {
+  main: '#A04821',
+  dark: '#803618',
+  light: '#BF6A4A',
+  contrast: '#F5E6D8',
+  text: '#3E2723',
+  alphaMain: (opacity) => `rgba(160, 72, 33, ${opacity})`,
+  alphaDark: (opacity) => `rgba(128, 54, 24, ${opacity})`
+};
+
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -27,47 +34,33 @@ const Login = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     
-    // Validation
     if (!formData.email || !formData.password) {
-      setError('Por favor, preencha todos os campos');
+      setError('Preencha todos os campos');
       return;
     }
 
     if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      setError('Por favor, insira um email válido');
+      setError('Email inválido');
       return;
     }
 
     setLoading(true);
 
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Replace with actual API call
-      // const response = await authService.login(formData);
-      
-      // On success:
       navigate('/dashboard');
-    } catch (err) {
-      setError(err.message || 'Credenciais inválidas. Por favor, tente novamente.');
+    } catch {
+      setError('Credenciais inválidas');
     } finally {
       setLoading(false);
     }
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
   };
 
   return (
@@ -81,19 +74,29 @@ const Login = () => {
           p: 4,
           borderRadius: 2,
           boxShadow: 3,
-          backgroundColor: 'background.paper',
+          backgroundColor: colorPalette.contrast,
+          border: `1px solid ${colorPalette.light}`
         }}
       >
         <LockIcon sx={{ 
           fontSize: 50, 
-          color: 'primary.main', 
+          color: colorPalette.main,
           mb: 2,
-          backgroundColor: 'orange.100',
-          p: 1,
-          borderRadius: '50%'
+          backgroundColor: colorPalette.alphaMain(0.2),
+          p: 1.5,
+          borderRadius: '50%',
+          border: `2px solid ${colorPalette.main}`
         }} />
         
-        <Typography component="h1" variant="h5" color="text.primary">
+        <Typography 
+          component="h1" 
+          variant="h5" 
+          sx={{ 
+            color: colorPalette.text,
+            fontWeight: 'bold',
+            mb: 1
+          }}
+        >
           Acesse sua conta
         </Typography>
         
@@ -101,39 +104,44 @@ const Login = () => {
           component="form" 
           onSubmit={handleSubmit} 
           sx={{ 
-            mt: 3, 
+            mt: 2, 
             width: '100%',
             '& .MuiTextField-root': { mb: 2 }
           }}
         >
           {error && (
-            <Alert severity="error" sx={{ mb: 3 }}>
+            <Alert severity="error" sx={{ 
+              mb: 3,
+              backgroundColor: colorPalette.alphaMain(0.15),
+              color: colorPalette.text,
+              border: `1px solid ${colorPalette.main}`
+            }}>
               {error}
             </Alert>
           )}
           
           <TextField
-            margin="normal"
-            required
             fullWidth
-            id="email"
-            name="email"
             label="Email"
+            name="email"
             autoComplete="email"
             autoFocus
             value={formData.email}
             onChange={handleChange}
-            variant="outlined"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { borderColor: colorPalette.light },
+                '&:hover fieldset': { borderColor: colorPalette.main },
+                '&.Mui-focused fieldset': { borderColor: colorPalette.dark }
+              }
+            }}
           />
           
           <TextField
-            margin="normal"
-            required
             fullWidth
             name="password"
             label="Senha"
             type={showPassword ? 'text' : 'password'}
-            id="password"
             autoComplete="current-password"
             value={formData.password}
             onChange={handleChange}
@@ -141,14 +149,21 @@ const Login = () => {
               endAdornment: (
                 <InputAdornment position="end">
                   <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={togglePasswordVisibility}
+                    onClick={() => setShowPassword(!showPassword)}
                     edge="end"
+                    sx={{ color: colorPalette.main }}
                   >
                     {showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
               ),
+            }}
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& fieldset': { borderColor: colorPalette.light },
+                '&:hover fieldset': { borderColor: colorPalette.main },
+                '&.Mui-focused fieldset': { borderColor: colorPalette.dark }
+              }
             }}
           />
           
@@ -159,31 +174,33 @@ const Login = () => {
             disabled={loading}
             sx={{
               mt: 2,
-              mb: 3,
+              mb: 2,
               py: 1.5,
-              backgroundColor: 'orange.main',
-              '&:hover': {
-                backgroundColor: 'orange.dark',
-              },
+              backgroundColor: colorPalette.main,
+              '&:hover': { backgroundColor: colorPalette.dark },
               fontSize: '1rem',
               fontWeight: 'bold',
+              color: 'white',
+              textTransform: 'none',
+              boxShadow: `0 2px 4px ${colorPalette.alphaMain(0.4)}`
             }}
           >
-            {loading ? (
-              <CircularProgress size={24} color="inherit" />
-            ) : (
-              'Entrar'
-            )}
+            {loading ? <CircularProgress size={24} color="inherit" /> : 'Entrar'}
           </Button>
           
-          <Grid container justifyContent="space-between">
+          <Grid container justifyContent="space-between" sx={{ mt: 1 }}>
             <Grid item>
               <Link
                 component={RouterLink}
                 to="/recuperar-senha"
                 variant="body2"
-                color="text.secondary"
-                sx={{ textDecoration: 'none' }}
+                sx={{ 
+                  color: colorPalette.main,
+                  '&:hover': { 
+                    color: colorPalette.dark,
+                    textDecoration: 'underline'
+                  }
+                }}
               >
                 Esqueceu a senha?
               </Link>
@@ -193,10 +210,13 @@ const Login = () => {
                 component={RouterLink}
                 to="/cadastro"
                 variant="body2"
-                color="primary.main"
                 sx={{ 
-                  textDecoration: 'none',
-                  fontWeight: 'bold'
+                  color: colorPalette.text,
+                  fontWeight: 'bold',
+                  '&:hover': { 
+                    color: colorPalette.dark,
+                    textDecoration: 'underline'
+                  }
                 }}
               >
                 Criar conta
