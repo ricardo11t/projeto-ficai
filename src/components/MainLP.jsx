@@ -16,7 +16,7 @@ const MainLP = () => {
   return (
     <>
       <div className='relative w-full h-150'>
-        <img src="/src/img/imagembg.png" alt="" className='w-full h-full object-cover'/>
+        <img src="../../public/img/imagembg.png" alt="" className='w-full h-full object-cover'/>
         <div className="absolute inset-0 bg-black/50 bg-opacity-50 flex items-center justify-center">
           <div className='text-center'>
             <h1 className="text-white text-5xl font-bold">Descubra as Maravilhas do Ceará</h1>
@@ -35,7 +35,6 @@ const MainLP = () => {
           </div>
         </div>
       </div>
-
       <h3 className='mt-10 text-[30px] text-center font-semibold'>Destinos Populares</h3>
       {cidades.length !== 0 ? (
         <>

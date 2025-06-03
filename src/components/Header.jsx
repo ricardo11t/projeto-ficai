@@ -12,7 +12,7 @@ const Header = () => {
         <div className="ml-4 flex gap-4 w-full">
           <Link to="/">
             <img
-              src="/src/img/ficai-logo.png"
+              src="../../public/img/ficai-logo.png"
               alt="Ficaí Logo"
               className="h-20 cursor-pointer p-0"
             />
